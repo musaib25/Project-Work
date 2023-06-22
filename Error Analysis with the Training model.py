@@ -16,14 +16,14 @@ import MySQLdb
 
 # Connect to the database
 #conn = sqlite3.connect('bsnl2')
-conn =  create_engine('mysql+mysqldb://root:musu@123@localhost/bsnl2')
+conn =  create_engine('mysql+mysqldb://root:xxxxxxxxxx@localhost/xxxxx')
 # Load data from database into a Pandas DataFrame
 df = pd.read_sql_query("SELECT * FROM pmresult_335555397",conn)
 mydb = mysql.connector.connect(
     host="localhost",
     user="root",
-    password="musu@123",
-    database="bsnl2"
+    password="xxxxxxxxx",
+    database="xxxxx"
 )
  df.dropna(inplace=True)
 df['Result Time'] = pd.to_datetime(df['Result Time'])
