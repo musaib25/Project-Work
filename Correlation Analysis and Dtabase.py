@@ -16,21 +16,21 @@ import MySQLdb
 mydb = mysql.connector.connect(
     host="localhost",
     user="root",
-    password="musu@123",
-    database="bsnl2"
+    password="xxxxxxxxx",
+    database="xxxxx"
 )
 mycursor = mydb.cursor()
 k=1
 
-conn =  create_engine('mysql+mysqldb://root:musu@123@localhost/bsnl2')
+conn =  create_engine('mysql+mysqldb://root:xxxxxxxxx@localhost/xxxxx')
 table_name="pmresult_335555339"
 oby="Result Time"
-src_path_days= "C:/Users/musai/OneDrive/Desktop/BSNL/bca-data/"
+src_path_days= "Your required path"
 list_of_days = os.listdir(src_path_days)
 
 
 for days in list_of_days:
-    src_path_hours="C:/Users/musai/OneDrive/Desktop/BSNL/bca-data/" + str(days)
+    src_path_hours="Your Required path " + str(days)
     list_of_hours=os.listdir(src_path_hours)
 
     for hours in list_of_hours:
@@ -44,7 +44,7 @@ for days in list_of_days:
             New_Data.columns = New_Data.columns.str.strip()
 
             if k==1:
-                conn =  create_engine('mysql+mysqldb://root:musu@123@localhost/bsnl2')
+                conn =  create_engine('mysql+mysqldb://root:xxxxxxxxx@localhost/xxxxx')
                 New_Data.to_sql(table_name, conn, if_exists='replace', index=False)
                 sql_create_table = f"CREATE TABLE {table_name} ({','.join(column_names)})"
                 k=0
@@ -55,7 +55,7 @@ import mysql.connector as connection
 
 
 try:
-    mydb = mysql.connector.connect(host="localhost", database = 'bsnl2',user="root", passwd="musu@123",use_pure=True)
+    mydb = mysql.connector.connect(host="localhost", database = 'xxxxx',user="root", passwd="xxxxxxxxx",use_pure=True)
     query = "Select * from pmresult_335555339;"
     result_dataFrame = pd.read_sql(query,mydb)
     mydb.close() #close the connection
